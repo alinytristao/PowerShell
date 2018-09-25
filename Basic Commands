@@ -1,0 +1,3 @@
+
+docker --version             # Version
+Get-History                  # Command History
