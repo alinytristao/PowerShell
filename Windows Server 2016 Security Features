@@ -1,3 +1,5 @@
 Get-WindowsFeature = retorna todas as features disponíveis no Sistema Operacional.
 Get-WindowsFeature | Where-Object {$_.Installed -eq $false  = Somente as features nao habilitadas.
 Get-WindowsFeature | Where-Object {$_.Installed -eq $false | Remove-WindowsFeature -Remove  = Remover Features nao habilitadas.
+Get-Service -name ScardSvr | ft Name,StartType = Visualizar serviço
+Set-Service -name ScardSvr -StartupType Disabled  = Configurar o serviço desabilitado
