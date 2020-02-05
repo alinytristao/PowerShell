@@ -1,0 +1,3 @@
+Get-WindowsFeature = retorna todas as features disponíveis no Sistema Operacional.
+Get-WindowsFeature | Where-Object {$_.Installed -eq $false  = Somente as features nao habilitadas.
+Get-WindowsFeature | Where-Object {$_.Installed -eq $false | Remove-WindowsFeature -Remove  = Remover Features nao habilitadas.
