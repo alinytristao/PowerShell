@@ -1,5 +1,23 @@
 Get-WindowsFeature => retorna todas as features disponíveis no Sistema Operacional.
+
 Get-WindowsFeature | Where-Object {$_.Installed -eq $false}  => Somente as features nao habilitadas.
+
 Get-WindowsFeature | Where-Object {$_.Installed -eq $false} | Remove-WindowsFeature -Remove  => Remover Features nao habilitadas.
+
 Get-Service -name ScardSvr | ft Name,StartType => Visualizar serviço
+
 Set-Service -name ScardSvr -StartupType Disabled  => Configurar o serviço desabilitado
+
+A primeira etapa a ser adotada para proteger a conta de um servidor é desativar a conta de administrador interna e criar uma segunda conta administrativa local a ser realmente usada para gerenciar o servidor. Se você já implantou uma instância de máquina virtual do Windows Server 2016 no Azure, notará que uma das primeiras etapas de configuração necessárias para criar uma conta administrativa local alternativa, pois a conta interna é desabilitada por padrão. 
+
+Cada servidor deve ter uma senha exclusiva para a conta de administrador local usada para administrar o servidor.
+ 
+Os membros do grupo Administradores local têm as mesmas permissões que a conta de Administrador incorporada. Como parte do processo de proteção do servidor, você deve garantir que apenas contas que exijam privilégios de administrador local sejam membros desse grupo.
+ 
+Você deve restringir a associação deste grupo a um número limitado de contas e auditar regularmente a associação do grupo para garantir que isso não foi alterado. Em ambientes de domínio, você também deve verificar a associação de grupos, como o grupo Administradores de Domínio, que se tornam automaticamente membros do grupo Administradores local em computadores ingressados no domínio.
+ 
+Durante os ataques, os invasores procuram comprometer as credenciais de contas que têm privilégios administrativos em vários sistemas, pois isso fornece ao invasor um nível de acesso maior do que uma conta que possui privilégios administrativos em um único sistema. 
+ 
+Um erro de configuração comum cometido por alguns profissionais de TI é adicionar contas de serviço ao grupo local de Administradores. Isso geralmente é feito como um método rápido de atribuir direitos de contas de serviço que, de outra forma, poderiam ser atribuídos com mais cuidado pela configuração correta da diretiva de grupo local ou das permissões de registro. Você deve garantir que nenhuma conta de serviço seja feita membro do grupo local de Administradores.
+
+Você também deve ter cuidado para verificar a associação de grupos como Operadores de Backup. Contas que são membros deste grupo têm permissão para ler dados no servidor, algo usado por invasores que podem querer filtrar dados importantes de um servidor.
