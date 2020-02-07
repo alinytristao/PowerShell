@@ -1,1 +1,8 @@
+how to use Get-Help and Get-Alias.
+
+Display basic information by running Get-Help.
+Use Update-Help to ensure that you have the latest Help files.
+Use Get-Help to view syntax, parameter information, and examples.
+Use Get-Alias to view the default command aliases.
+
 
