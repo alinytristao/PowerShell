@@ -12,3 +12,11 @@ For commands that have a High internal confirm impact, the default behavior is t
 You control a command's -WhatIf behavior by setting the preference to true or false.
 
 To view the current values of the -Whatif or -Confirm preference variables you can simply type $ConfirmPreference or $WhatifPreference at the console. You can also view more details in the Help file by typing help about_preference_variables -showwindow.
+
+In this demonstration, we show you how to use -WhatIf and -Confirm to control how commands are executed.
+
+Use -WhatIf to determine the effect of running Stop-Service for individual or multiple commands.
+Use -Confirm to display Stop-Process command execution options for individual or multiple commands.
+Use $ConfirmPreference to cause a warning to appear before a command executes.
+
+
