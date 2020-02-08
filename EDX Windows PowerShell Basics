@@ -5,4 +5,5 @@ Use Update-Help to ensure that you have the latest Help files.
 Use Get-Help to view syntax, parameter information, and examples.
 Use Get-Alias to view the default command aliases.
 
+help about_preference_variables -showwindow  :> To control a command's confirmation behavior, you set $ConfirmPreference accordingly. The default level for $ConfirmPreference is set to High when you start a new shell session. You can set $ConfirmPreference to Low or Medium, but that setting is preserved only for the current shell session. Changes do not affect other open shell sessions. When the command runs, Windows PowerShell checks its internal confirm impact level and if that level is equal to or higher than your $ConfirmPreference setting, Windows PowerShell performs the confirmation action automatically. Therefore, to have the command prompt you to continue or halt execution, set the $ConfirmPreference preference to be less than the command's confirm impact.
 
