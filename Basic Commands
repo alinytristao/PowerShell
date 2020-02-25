@@ -2,3 +2,6 @@
 docker --version             # Version
 Get-History                  # Command History
 get-host                     # versao e informações
+get-date                     # Data
+get-help get-date            # Mostra informações do comando
+cls                         # limpa a tela
